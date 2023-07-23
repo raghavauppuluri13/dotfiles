@@ -44,7 +44,7 @@ set tabstop=4
 set shiftwidth=4
 
 set background=dark
-colorscheme eldar
+colorscheme eldar 
 set autoindent                 "use indentation of previous line
 set laststatus=2               "Always display the statusline in all windows
 set hidden                     "hide buffers, don't abandon them
