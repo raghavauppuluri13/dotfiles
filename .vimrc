@@ -1,5 +1,6 @@
 set shell=/bin/bash
 
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -11,27 +12,19 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'agude/vim-eldar'
-Plugin 'tomasr/molokai'
-Plugin 'maxbrunsfeld/vim-yankstack' " emacs style kill-ring
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter' " Git gutter
-Plugin 'tpope/vim-fugitive' " Git commands
-Plugin 'tpope/vim-sleuth'
-Plugin 'tpope/vim-obsession'
-Plugin 'sheerun/vim-polyglot'
+Plugin 'tpope/vim-sleuth' " language pack
+Plugin 'tpope/vim-obsession' " language pack 
+Plugin 'sheerun/vim-polyglot' " language pack
 Plugin 'Valloric/YouCompleteMe' " YCM
-Plugin 'jiangmiao/auto-pairs'
 Plugin 'godlygeek/tabular' " Tabularize
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
+Plugin 'google/vim-maktaba' "
 Plugin 'mbbill/undotree'
-Plugin 'klen/python-mode'
 Plugin 'elzr/vim-json'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'ActivityWatch/aw-watcher-vim'
-
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -96,16 +89,8 @@ nnoremap <C-L> <C-W>l
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
-  autocmd FileType dart AutoFormatBuffer dartfmt
-  autocmd FileType go AutoFormatBuffer gofmt
-  autocmd FileType gn AutoFormatBuffer gn
-  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
-  autocmd FileType java AutoFormatBuffer google-java-format
-  autocmd FileType python AutoFormatBuffer yapf
-  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType python AutoFormatBuffer autopep8
   autocmd FileType rust AutoFormatBuffer rustfmt
-  autocmd FileType vue AutoFormatBuffer prettier
-  autocmd FileType swift AutoFormatBuffer swift-format
 augroup END
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
