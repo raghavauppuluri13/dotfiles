@@ -12,12 +12,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 sudo apt install build-essential cmake vim-nox python3-dev
 
 # copy files
-cp ./.vimrc ~
-cp ./tmux.conf ~/.config/tmux/tmux.conf
+cp ./vimrc ~/.vimrc
+cp ./tmux.conf ~/.tmux.conf
 
 # vim plugins + YCM 
 vim +PluginInstall +qall
 python3 ~/.vim/bundle/YouCompleteMe/install.py --clangd-completer --rust-completer
-
-# Source tmux
-tmux source ~/.config/tmux/tmux.conf
