@@ -9,11 +9,11 @@ mkdir -p $HOME/.vim/backup//
 # install
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-sudo apt install build-essential cmake vim-nox python3-dev fzf silversearcher-ag -Y
+sudo apt install build-essential cmake vim-nox python3-dev fzf silversearcher-ag -y
 
 # copy files
 cp ./vimrc ~/.vimrc
-cp ./.tmux.conf ~/.tmux.conf
+cp tmux.conf ~/.tmux.conf
 
 # vim plugins + YCM 
 vim +PluginInstall +qall
