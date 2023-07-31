@@ -13,7 +13,7 @@ sudo apt install build-essential cmake vim-nox python3-dev fzf silversearcher-ag
 
 # copy files
 cp ./vimrc ~/.vimrc
-cp ./tmux.conf ~/.tmux.conf
+cp ./.tmux.conf ~/.tmux.conf
 
 # vim plugins + YCM 
 vim +PluginInstall +qall
