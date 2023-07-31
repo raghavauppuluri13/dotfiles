@@ -21,6 +21,6 @@ python3 ~/.vim/bundle/YouCompleteMe/install.py --clangd-completer --rust-complet
 
 # git configs
 
-git config --global user.name Raghava Uppuluri
+git config --global user.name "Raghava Uppuluri"
 git config --global user.email raghava.upp13@gmail.com
 git config --global core.editor vim
