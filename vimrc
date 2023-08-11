@@ -89,7 +89,7 @@ nnoremap <C-L> <C-W>l
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
-  autocmd FileType python AutoFormatBuffer autopep8
+  autocmd FileType python AutoFormatBuffer black
   autocmd FileType rust AutoFormatBuffer rustfmt
 augroup END
 
