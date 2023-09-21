@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
+Plugin 'Exafunction/codeium.vim'
 Plugin 'agude/vim-eldar'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -98,3 +99,9 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extr
 "macros
 nnoremap gv gd[{V%::s/<C-R>///gc<left><left><left>
 nnoremap gV gD:%s/<C-R>///gc<left><left><left>
+
+"codeium
+imap <script><silent><nowait><expr> <C-g> codeium#Accept()
+imap <C-;>   <Cmd>call codeium#CycleCompletions(1)<CR>
+imap <C-,>   <Cmd>call codeium#CycleCompletions(-1)<CR>
+imap <C-x>   <Cmd>call codeium#Clear()<CR>
