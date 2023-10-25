@@ -7,7 +7,6 @@ mkdir -p $HOME/.vim/undo//
 mkdir -p $HOME/.vim/backup//
 
 # install
-
 sudo add-apt-repository ppa:jonathonf/vim # vim 9.0
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -22,9 +21,3 @@ cp tmux.conf ~/.tmux.conf
 # vim plugins + YCM 
 vim +PluginInstall +qall
 python3 ~/.vim/bundle/YouCompleteMe/install.py --clangd-completer --rust-completer
-
-# git configs
-
-git config --global user.name "Raghava Uppuluri"
-git config --global user.email raghava.upp13@gmail.com
-git config --global core.editor vim

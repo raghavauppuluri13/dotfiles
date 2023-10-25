@@ -1,6 +1,5 @@
 set shell=/bin/bash
 
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -9,33 +8,38 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy finder
 Plugin 'junegunn/fzf.vim'
-Plugin 'Exafunction/codeium.vim'
-Plugin 'agude/vim-eldar'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plugin 'Exafunction/codeium.vim'  " Codeium, AI completion
+Plugin 'agude/vim-eldar' " Eldar theme
+Plugin 'vim-airline/vim-airline' " Airline
+Plugin 'vim-airline/vim-airline-themes' " Airline
 Plugin 'airblade/vim-gitgutter' " Git gutter
-Plugin 'tpope/vim-sleuth' " language pack
-Plugin 'tpope/vim-obsession' " language pack 
-Plugin 'sheerun/vim-polyglot' " language pack
-Plugin 'Valloric/YouCompleteMe' " YCM
+Plugin 'tpope/vim-sleuth' " autodetect indent
+Plugin 'tpope/vim-obsession' " session manager
+Plugin 'sheerun/vim-polyglot' " Syntax highlighting
+Plugin 'Valloric/YouCompleteMe' " Autocomplete
 Plugin 'godlygeek/tabular' " Tabularize
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'google/vim-codefmt'
-Plugin 'google/vim-maktaba' "
-Plugin 'mbbill/undotree'
-Plugin 'elzr/vim-json'
+Plugin 'google/vim-codefmt' " Code formatter
+Plugin 'google/vim-maktaba' " Vimscript plugin 
+Plugin 'mbbill/undotree' " Undo tree
+Plugin 'elzr/vim-json' " JSON
+Plugin 'czheo/mojo.vim' " Mojo highlighting
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" Keybindings
 cmap w!! w !sudo tee > /dev/null %
+
 syntax on
 set clipboard=unnamed,unnamedplus
 set completeopt-=preview
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 set background=dark
 colorscheme eldar 
@@ -57,7 +61,7 @@ set virtualedit=block          "Let block visual go past EOL
 set list                       "show special chars (below)
 set rnu
 set number                     " Show current line number
-set relativenumber
+set relativenumber             " Show relative line numbers
 set encoding=utf-8
 set listchars=
 set fileformats=unix,dos,mac
@@ -82,6 +86,8 @@ set backupdir=$HOME/.vim/backup//
 "set whichwrap=                 "no keys can wrap lines in normal/visual
 "set hlsearch incsearch         "highlight as we go
 "set showcmd                    "show the last ex command
+
+"window navigation
 nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
