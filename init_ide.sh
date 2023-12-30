@@ -8,15 +8,13 @@ mkdir -p $HOME/.vim/backup//
 
 # install
 sudo add-apt-repository ppa:jonathonf/vim # vim 9.0
-
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 sudo apt update
 sudo apt install build-essential cmake vim-nox python3-dev vim fzf silversearcher-ag python3-autopep8 black -y
 
 # copy files
-cp ./vimrc ~/.vimrc
-cp tmux.conf ~/.tmux.conf
+./update_local_from_dotfiles.sh
 
 # vim plugins + YCM 
 vim +PluginInstall +qall

@@ -10,13 +10,12 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy finder
 Plugin 'junegunn/fzf.vim'
+Plugin 'dense-analysis/ale' " Linting
 Plugin 'agude/vim-eldar' " Eldar theme
 Plugin 'vim-airline/vim-airline' " Airline
 Plugin 'vim-airline/vim-airline-themes' " Airline
-Plugin 'dense-analysis/ale' " Linting
 Plugin 'airblade/vim-gitgutter' " Git gutter
 Plugin 'tpope/vim-sleuth' " autodetect indent
-Plugin 'Exafunction/codeium.vim'  " Codeium, AI completion
 Plugin 'tpope/vim-obsession' " session manager
 Plugin 'sheerun/vim-polyglot' " Syntax highlighting
 Plugin 'Valloric/YouCompleteMe' " Autocomplete
@@ -110,9 +109,3 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extr
 "jump to definition
 nnoremap gv gd[{V%::s/<C-R>///gc<left><left><left>
 nnoremap gV gD:%s/<C-R>///gc<left><left><left>
-
-"codeium
-imap <script><silent><nowait><expr> <C-g> codeium#Accept()
-imap <C-;>   <Cmd>call codeium#CycleCompletions(1)<CR>
-imap <C-,>   <Cmd>call codeium#CycleCompletions(-1)<CR>
-imap <C-x>   <Cmd>call codeium#Clear()<CR>
