@@ -1,26 +1,37 @@
 #!/bin/sh
-# git configs
 
-git config --global user.name "Raghava Uppuluri"
-git config --global user.email raghava.upp13@gmail.com
-git config --global core.editor vim
+install_if_not_exists() {
+    if ! dpkg -s "$1" > /dev/null 2>&1; then
+        echo "installing '$1'"
+        sudo apt install "$1" -y
+    fi
+}
 
-# useful terminal terminal commands
-sudo apt install autojump -y
-echo ". /usr/share/autojump/autojump.bash" >> ~/.bashrc
-
-# install eza
-sudo apt update
-sudo apt install -y gpg
+append_if_not_exists() {
+    if ! grep -qF "$1" "$2"; then
+        echo "appending '$1' to '$2'"
+        echo "$1" >> "$2"
+    fi
+}
 
 if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
-  RC='~/.zsh_aliases'
+  ALIASES="$HOME/.zsh_aliases"
+  RC="$HOME/.zshrc"
 elif [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
-  RC='~/.bash_aliases'
+  ALIASES="$HOME/.bash_aliases"
+  RC="$HOME/.bashrc"
 else
     # User is using another shell
     echo "User is unsupported shell!"
     exit
 fi
 
-echo 'alias ag="ag --smart-case --color-path \"31;1\" --color-match \"32;1\" --color-line-number \"34;1\""' >> $RC
+# useful packages
+install_if_not_exists autojump
+append_if_not_exists "[[ -s $HOME/.autojump/etc/profile.d/autojump.sh   ]] && source $HOME/.autojump/etc/profile.d/autojump.sh" $RC
+install_if_not_exists gpg
+install_if_not_exists feh # image viewer
+install_if_not_exists  # image viewer
+
+append_if_not_exists "source $(readlink -f rc)" $RC
+append_if_not_exists "source $(readlink -f aliases)" $ALIASES
