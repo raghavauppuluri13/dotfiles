@@ -28,10 +28,8 @@ fi
 
 # useful packages
 install_if_not_exists autojump
-append_if_not_exists "[[ -s $HOME/.autojump/etc/profile.d/autojump.sh   ]] && source $HOME/.autojump/etc/profile.d/autojump.sh" $RC
 install_if_not_exists gpg
 install_if_not_exists feh # image viewer
-install_if_not_exists  # image viewer
 
-append_if_not_exists "source $(readlink -f rc)" $RC
-append_if_not_exists "source $(readlink -f aliases)" $ALIASES
+append_if_not_exists "source $(readlink -f rc.sh)" $RC
+append_if_not_exists "source $(readlink -f aliases.sh)" $ALIASES
