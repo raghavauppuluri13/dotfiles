@@ -10,13 +10,12 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy finder
 Plugin 'junegunn/fzf.vim'
+Plugin 'Exafunction/codeium.vim'  " Codeium, AI completion
 Plugin 'agude/vim-eldar' " Eldar theme
 Plugin 'vim-airline/vim-airline' " Airline
 Plugin 'vim-airline/vim-airline-themes' " Airline
-Plugin 'dense-analysis/ale' " Linting
 Plugin 'airblade/vim-gitgutter' " Git gutter
 Plugin 'tpope/vim-sleuth' " autodetect indent
-Plugin 'Exafunction/codeium.vim'  " Codeium, AI completion
 Plugin 'tpope/vim-obsession' " session manager
 Plugin 'sheerun/vim-polyglot' " Syntax highlighting
 Plugin 'Valloric/YouCompleteMe' " Autocomplete
@@ -24,6 +23,7 @@ Plugin 'godlygeek/tabular' " Tabularize
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'google/vim-codefmt' " Code formatter
 Plugin 'google/vim-maktaba' " Vimscript plugin 
+Plugin 'google/vim-glaive' " param updater
 Plugin 'mbbill/undotree' " Undo tree
 Plugin 'elzr/vim-json' " JSON
 Plugin 'czheo/mojo.vim' " Mojo highlighting
@@ -32,8 +32,6 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Keybindings
-
-" forgot to sudo?
 cmap w!! w !sudo tee > /dev/null %
 
 syntax on
@@ -99,15 +97,14 @@ nnoremap <C-L> <C-W>l
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
-  autocmd FileType python AutoFormatBuffer black
+  autocmd FileType python AutoFormatBuffer yapf
   autocmd FileType rust AutoFormatBuffer rustfmt
 augroup END
-
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 
-"macros
+"Glaive codefmt yapf_executable="yapf --style={based_on_style: pep8, column_limit: 100}"
 
-"jump to definition
+"macros
 nnoremap gv gd[{V%::s/<C-R>///gc<left><left><left>
 nnoremap gV gD:%s/<C-R>///gc<left><left><left>
 
