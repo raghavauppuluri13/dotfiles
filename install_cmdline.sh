@@ -33,3 +33,7 @@ install_if_not_exists feh # image viewer
 
 append_if_not_exists "source $(readlink -f rc.sh)" $RC
 append_if_not_exists "source $(readlink -f aliases.sh)" $ALIASES
+
+# install pyenv
+curl https://pyenv.run | bash
+pyenv install 3.9.18
